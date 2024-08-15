@@ -84,7 +84,7 @@
 
 <script>
 import multiselect from "vue-multiselect";
-import "/Users/souza/Documents/tshirt-store/node_modules/vue-multiselect/dist/vue-multiselect.css";
+import "node_modules/vue-multiselect/dist/vue-multiselect.css";
 
 export default {
   name: "TshirtSelector",
