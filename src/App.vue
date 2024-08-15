@@ -1,26 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <h1>Catálogo Interativo - Meu Traje Nerd</h1>
+    <TshirtSelector @updateSelection="updateSelection" />
+    <TshirtPreview :selection="selection" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TshirtSelector from './components/TshirtSelector.vue';
+import TshirtPreview from './components/TshirtPreview.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TshirtSelector,
+    TshirtPreview
+  },
+  data() {
+    return {
+      selection: {
+        type: 'normal',
+        color: 'white', // Cor padrão deve corresponder a uma imagem
+        design: null
+      }
+    };
+  },
+  methods: {
+    updateSelection(selection) {
+      this.selection = selection;
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 </style>
